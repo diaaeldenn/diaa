@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج إعداد المدربين المحترفين | الدفعة 26</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c5aa0;
+            --secondary: #ff6b00;
+            --accent: #00a896;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* أنيميشن للتأثيرات */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .animate {
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+        
+        .animate.active {
+            opacity: 1;
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e3a68 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin: 2.5rem 0 1.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin: 1.5rem 0;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--primary);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .cta-button:hover::before {
+            width: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.4);
+        }
+        
+        section {
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        .bg-light {
+            background-color: var(--light);
+        }
+        
+        .program-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 2.5rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--secondary);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .feature-card:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .bonus-section {
+            background: linear-gradient(135deg, #00a896 0%, #028090 100%);
+            color: black;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .bonus-section h2::after {
+            background: white;
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        .testimonials-container {
+            position: relative;
+            margin: 3rem 0;
+            overflow: hidden;
+            height: 300px;
+        }
+        
+        .testimonials-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 15px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '\201C';
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        .testimonial-nav button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-nav button:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            position: relative;
+            border: 2px solid #eee;
+            transition: all 0.4s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--secondary);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.popular::before {
+            content: 'الأكثر طلباً';
+            position: absolute;
+            top: -12px;
+            right: 50%;
+            transform: translateX(50%);
+            background: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .price {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin: 1.5rem 0;
+            font-weight: bold;
+        }
+        
+        .price span {
+            font-size: 1.2rem;
+            font-weight: normal;
+        }
+        
+        .features-list {
+            text-align: right;
+            margin: 1.5rem 0;
+            list-style-type: none;
+        }
+        
+        .features-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #eee;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+        
+        .features-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            right: 0;
+        }
+        
+        .guarantee {
+            background-color: #f8f9fa;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            margin: 3rem 0;
+            border: 2px dashed var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guarantee i {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .scarcity {
+            background: linear-gradient(135deg, #ff6b00 0%, #dd5000 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .scarcity::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+            animation: pulse 4s infinite ease-in-out;
+            z-index: 0;
+        }
+        
+        .scarcity-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .countdown-item {
+            margin: 0 10px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            padding: 15px;
+            min-width: 80px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .countdown-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+        }
+        
+        .trainer-section {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .trainer-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .trainer-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: all 0.5s ease;
+        }
+        
+        .trainer-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .trainer-info {
+            flex: 1;
+        }
+        
+        .trainer-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .badge {
+            background: var(--light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .badge i {
+            color: var(--secondary);
+        }
+        
+        .target-audience {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .audience-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        
+        .audience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        
+        .audience-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .vision-mission {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e3a68 100%);
+            color: white;
+            padding: 4rem 0;
+            border-radius: 15px;
+            margin: 4rem 0;
+        }
+        
+        .vision-mission h2::after {
+            background: var(--secondary);
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        .vm-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2.5rem;
+        }
+        
+        .vm-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        
+        .vm-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            height: 200px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 992px) {
+            .trainer-section {
+                flex-direction: column;
+            }
+            
+            .countdown-item {
+                min-width: 60px;
+                padding: 10px;
+            }
+            
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .program-features, .testimonials, .pricing-cards, .target-audience, .vm-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+            
+            .countdown-item {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="animate">برنامج إعداد المدربين المحترفين</h1>
+		<h1 class="animate">TOT - CPT</h1>
+            <p class="animate">الدفعة 16 - يقام هذا البرنامج مرة كل 3 سنوات فقط!</p>
+            <p class="animate">انضم إلينا لتجد في النهاية أنك لم تحصل على كورس تدريبي، بل حصلت على نفسك من جديد."</p>
+            <a href="#enroll" class="cta-button animate">احجز مقعدك الآن - مقاعد محدودة!</a>
+	        <p class="animate">احجز مقعدك فى المحاضرة التعريفية + ورشة عمل مجانية عن مهارات وفن الاقناع</p>
+
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <h2 class="animate">لماذا هذا البرنامج مختلف تمامًا؟</h2>
+             <div class="justified-text">
+            <p>هذا البرنامج ليس مجرد تدريب عادي، بل هو نقطة تحول حقيقية في حياتك المهنية والشخصية.</p>
+
+            <p>إذا كنت قد شعرت يومًا أنك فقدت الثقة في نفسك، أو أن علاقاتك بحاجة لتحسين، أو أنك تبحث عن شغفك وهدفك الحقيقي في الحياة، فإن هذا البرنامج مصمم خصيصًا لك. نحن لا نعدك فقط بالمعلومات، بل نعدك بتحول جذري. سنساعدك على بناء ثقتك بنفسك لتصبح أقوى من أي وقت مضى، وتكسب احترامك لذاتك واحترام من حولك.</p>
+
+            <p>ولأننا نؤمن بنجاحك، فإن انضمامك إلينا هو استثمار مضمون. هذا البرنامج هو بوابتك لمسار مهني جديد، مدعوم بشهادة معتمدة موثقة ودعم مستمر لمدة عام كامل. نعم، نحن نبيع <span class="highlight">مسارًا مهنيًا مضمونًا، وتحولًا شخصيًا جذريًا</span>، وليس مجرد دورة تدريبية.</p>
+
+            <p>هذه هي فرصتك، التي لا تتكرر إلا مرة كل عدة سنوات، لتسمح لنا أن نساعدك على أن "تحيا من جديد".</p>
+        </div>
+        
+        <div class="quote">
+            "التدريب الجيد لا يغير الأداء فقط، بل يغير الحياة بأكملها"
+        </div>
+            
+            <div class="program-features">
+                <div class="feature-card animate">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>معسكر تدريبي مكثف</h3>
+                    <p>12 يوم من الغمر الكلي: تغيير كامل للعقلية والمهارات حتى للمدربين المحترفين - 60 ساعة من التدريب العملى المكثف</p>
+                </div>
+                <div class="feature-card animate">
+                    <i class="fas fa-certificate"></i>
+                    <h3>شهادة معتمدة وموثقة</h3>
+                    <p>شهادة قوية معتمدة من الخارجية المصرية - سلاحك القانوني لفتح أي باب في سوق العمل</p>
+                </div>
+                <div class="feature-card animate">
+                    <i class="fas fa-id-card"></i>
+                    <h3>كارنيه مدرب معتمد</h3>
+                    <p>هوية مهنية رسمية تشعرك بالانتماء لكيان مميز ومعترف به</p>
+                </div>
+                <div class="feature-card animate">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>دعم لمدة عام كامل</h3>
+                    <p>مرشدك الشخصي (Mentor) يدعم قراراتك التدريبية على مدار 12 شهرًا بعد البرنامج</p>
+                </div>
+		
+		<div class="feature-card animate">
+                    <i class="fas fa-money-bill-trend-up"></i>
+                    <h3>اشتراك مخفّض</h3>
+                    <p>إمكانية الحصول على اشتراك مخفّض في جميع برامج الأكاديمية لمدة عام كامل.</p>
+                </div>
+		<div class="feature-card animate">
+                    <i class="fas fa-hand-holding-hand"></i>
+                    <h3>تطور مهني مستمر</h3>
+                    <p> توفير برامج تدريبية إضافية لرفع كفاءة المدربين، بالإضافة إلى تأهيلهم لحضور المستويات المتقدمة من برامج الإرشاد والصحة النفسية.</p>
+                </div>
+		<div class="feature-card animate">
+                    <i class="fas fa-comments"></i>
+                    <h3>فرص للتواصل</h3>
+                    <p> إمكانية تمثيل الاكاديمية والاشتراك في مؤتمرات وتدريبات خاصة بالأكاديمية.</p>
+                </div>
+		<div class="feature-card animate">
+                    <i class="fas fa-arrow-trend-up"></i>
+                    <h3>تحول شخصي ومهني</h3>
+                    <p> البرنامج يَعِدُ بـ "تحول جذري" في حياة المتدرب، من خلال مساعدته على بناء الثقة بالنفس واستعادة الشغف وإيجاد هدف لحياته.</p>
+                </div>
+		<div class="feature-card animate">
+                    <i class="fas fa-stairs"></i>
+                    <h3>فرصة للنمو</h3>
+                    <p>  التأهيل للمستويات الأعلى فى Life Coaching.</p>
+                </div>
+		
+            </div>
+        </div>
+    </section>
+
+    <section class="bonus-section">
+        <div class="container">
+            <h2 class="animate">هدايا وقيمة إضافية لا تُقاوم!</h2>
+            <p class="animate">مجموعة المميزات والتخفيضات الحصرية التي تجعل قرار الاشتراك لا يحتاج للتفكير</p>
+            
+            <div class="program-features">
+                <div class="feature-card animate">
+                    <i class="fas fa-tags"></i>
+                    <h3>اشتراك مخفّض في كل برامج الأكاديمية</h3>
+                    <p>بقيمة 5,000 جنيه - فرصة للتعلم المستمر بأسعار تفضيلية</p>
+                </div>
+                <div class="feature-card animate">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>التأهيل للمستويات المتقدمة</h3>
+                    <p>بقيمة 15,000 جنيه - مدخل حصري لبرامج الإرشاد الشخصي وبرامج الصحة النفسية المتخصصة </p>
+                </div>
+                <div class="feature-card animate">
+                    <i class="fas fa-concierge-bell"></i>
+                    <h3>دعم فني ولوجيستي</h3>
+                    <p>بقيمة 5,000 جنيه - نوفر لك القاعات والشهادات لأول جلساتك التدريبية</p>
+                </div>
+                <div class="feature-card animate">
+                    <i class="fas fa-gift"></i>
+                    <h3>ورش عمل إضافية مجانية</h3>
+                    <p>بقيمة 7,000 جنيه - باقة برامج تدريبية متقدمة ترفع من كفاءتك</p>
+                </div>
+				 <div class="feature-card animate">
+                    <i class="fas fa-street-view"></i>
+                    <h3>جلسات إرشادية</h3>
+                    <p>بقيمة 3,000 جنيه - جلسات ارشادية شخصية لك كمدرب</p>
+                </div>
+				<div class="feature-card animate">
+                    <i class="fas fa-computer"></i>
+                    <h3>المستوى الثانى</h3>
+                    <p>بقيمة 1,000 جنيه - على المستوى الثانى الفنى - التكنولوجى</p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 1.2rem;"><strong>إجمالي قيمة الخصومات والدعم اللى هتحصل علية : 36,000 جنيه</strong></p>
+	       <p style="margin-top: 2rem; font-size: 1.2rem;"><strong>انضمامك لينا مش معناه حضور تدريب - دا وجود ليك فى مجتمع بيقدملك دعم عشان تكون الافضل</strong></p>
+        </div>
+    </section>
+
+    <!-- قسم المدرب -->
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="animate">مدرب البرنامج</h2>
+            <div class="trainer-section">
+                <div class="trainer-image animate">
+                    <img src="TOT/1.jpg" alt="مدرب البرنامج">
+                </div>
+                <div class="trainer-info">
+                    <h3 class="animate">د.ضياء الدين السيد</h3>
+                    <p class="animate">خبير تدريب وتطوير مع أكثر من 25 عامًا من الخبرة في مجال إعداد المدربين وتأهيل الكوادر التدريبية للمؤسسات الكبرى.</p>
+                    
+                    <div class="trainer-badges">
+                        <span class="badge animate"><i class="fas fa-award"></i>مدرب دولى معتمد لدى العديد من الهيئات والجهات والمؤسسات الاقليمية والعربية</span>
+                        <span class="badge animate"><i class="fas fa-award"></i> مستشار تطوير مؤسسي</span>
+                        <span class="badge animate"><i class="fas fa-award"></i>لديه أكثر من 60 لقاء إذاعى وتلفزيونى</span>
+                        <span class="badge animate"><i class="fas fa-award"></i> مؤلف منهج CARE في مجال التدريب</span>
+                    </div>
+                    
+                    <p class="animate">قام بتدريب أكثر من 150,000 متدرب في مصر والعالم العربي، وساعد العشرات في إنشاء مراكز تدريب ناجحة، وله منهجية فريدة في نقل الخبرة وتمكين المدربين من تحقيق أقصى استفادة من إمكاناتهم.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الفئات المستهدفة -->
+    <section>
+        <div class="container">
+            <h2 class="animate">الفئات المستهدفة من البرنامج</h2>
+            <p class="animate">هذا البرنامج مصمم خصيصًا للمهنيين الطموحين الذين يسعون للتميز في مجال التدريب</p>
+            
+            <div class="target-audience">
+                 <div class="audience-card animate">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>التربويون والأساتذة الأكاديميون</h3>
+                    <p>البرنامج سيساعدهم على الانتقال من مجرد تقديم المعرفة النظرية إلى إلهام الطلاب وتطبيق أساليب تدريبية تفاعلية تجعل عملية التعلم ممتعة وفعالة.</p>
+                </div>
+				<div class="audience-card animate">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>مدربي الشركات</h3>
+                    <p>تطوير أدائهم ليصبحوا المُدرب الأساسي في شركاتهم، ويقودون فرقًا مُلهمة نحو التميز.</p>
+                </div>
+                <div class="audience-card animate">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>المدربين المستقلين</h3>
+                    <p>المدربون المستقلون الراغبون في تطوير مهاراتهم وبناء علامتهم التجارية الخاصة ،  ليصبحوا علامة فارقة لا تُنسى، ويحولون شغفهم إلى مصدر دخل ثابت ومؤثر.</p>
+                </div>
+                <div class="audience-card animate">
+                    <i class="fas fa-users"></i>
+                    <h3>قادة الفرق</h3>
+                    <p>تطوير أساليبهم القيادية ليصبحوا قادة يُلهمون فرقهم ويحفزونهم على تحقيق نتائج استثنائية.</p>
+                </div>
+				<div class="audience-card animate">
+                    <i class="fas fa-user-group"></i>
+                    <h3>المستشارون والمتخصصون</h3>
+                    <p> الخبراء والاستشاريون في المجالات المختلفة (الإدارية، النفسية، الاجتماعية، إلخ)، الذين يريدون تعلم كيفية تحويل خبراتهم إلى برامج تدريبية، وتقديمها بطرق احترافية ومؤثرة تضمن نجاحهم.</p>
+                </div>
+                <div class="audience-card animate">
+                    <i class="fas fa-users-rectangle"></i>
+                    <h3>من يتعامل مع الجمهور</h3>
+                    <p>هذا البرنامج سيعلمك كيف تنتقل من مجرد التعامل مع الناس إلى بناء علاقات قوية، وكيف تمتلك فن الإقناع والتأثير لتصبح مؤثرًا حقيقيًا في مجالك.</p>
+                </div>
+				 <div class="audience-card animate">
+                    <i class="fas fa-user-gear"></i>
+                    <h3>المهتمون بالتنمية الذاتية</h3>
+                    <p>البرنامج سيقدم لهم الأدوات والشهادات التي تمكنهم من الانتقال من مرحلة الاهتمام إلى مرحلة الاحتراف، وبدء مسارهم المهني في مجال الإرشاد أو التدريب بثقة كاملة.</p>
+                </div>
+				<div class="audience-card animate">
+                    <i class="fas fa-users-rays"></i>
+                    <h3>المؤثرون</h3>
+                    <p> كل من لديه شغف بالتأثير وإحداث فرق. هذا البرنامج سيمنحك المهارات الاحترافية لترك بصمة لا تُنسى في حياة الناس، وتحويل شغفك بمساعدة الآخرين إلى مسار مهني منظم ومؤثر.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الرؤية والرسالة -->
+    <section class="vision-mission">
+        <div class="container">
+            <h2 class="animate">رؤيتنا ورسالتنا</h2>
+            <p class="animate">نسعى لخلق جيل جديد من المدربين المحترفين القادرين على إحداث تغيير حقيقي في مجتمعاتهم</p>
+            
+            <div class="vm-container">
+                <div class="vm-card animate">
+                    <i class="fas fa-eye"></i>
+                    <h3>رؤيتنا</h3>
+                    <p>أن نكون الرواد في مجال إعداد مدربين المدربين في مجتمعنا، من خلال تقديم برامج تدريبية متطورة تلبي احتياجات سوق العمل وتحقق التحول المهني والشخصي للمتدربين.</p>
+                </div>
+                <div class="vm-card animate">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>رسالتنا</h3>
+                    <p>تمكين المدربين من امتلاك الأدوات والمعرفة والمهارات اللازمة لتحقيق التميز في مجالهم، وإعدادهم لقيادة التغيير الإيجابي في مؤسساتهم ومجتمعاتهم من خلال التدريب الفعال.</p>
+                </div>
+                <div class="vm-card animate">
+                    <i class="fas fa-handshake"></i>
+                    <h3>قيمنا</h3>
+                    <p>الجودة، الالتزام، التميز، الابتكار، العمل الجماعي، والمسؤولية الاجتماعية. نحن نؤمن بأن التدريب هو وسيلة للتغيير وليس مجرد نقل للمعلومات.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- معرض الصور -->
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="animate">لمحات من تجارب سابقة</h2>
+            <p class="animate">لقطات من دورات سابقة وورش العمل والتفاعل بين المدرب والمتدربين</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item animate">
+                    <img src="TOT/2.jpg" alt="جلسة تدريبية">
+                </div>
+                <div class="gallery-item animate">
+                    <img src="TOT/3.jpg" alt="ورشة عمل">
+                </div>
+                <div class="gallery-item animate">
+                    <img src="TOT/5.jpg" alt="تفاعل المتدربين">
+                </div>
+                <div class="gallery-item animate">
+                    <img src="TOT/4.jpg" alt="تسليم الشهادات">
+                </div>
+		<div class="gallery-item animate">
+                    <img src="TOT/6.jpg" alt="تسليم الشهادات">
+                </div>
+		
+		<div class="gallery-item animate">
+                    <img src="TOT/8.jpg" alt="تفاعل المتدربين">
+                </div>
+                <div class="gallery-item animate">
+                    <img src="TOT/9.jpg" alt="تسليم الشهادات">
+                </div>
+		<div class="gallery-item animate">
+                    <img src="TOT/10.jpg" alt="تسليم الشهادات">
+                </div>
+		<div class="gallery-item animate">
+                    <img src="TOT/11.jpg" alt="تسليم الشهادات">
+                </div>
+		<div class="gallery-item animate">
+                    <img src="TOT/12.jpg" alt="تسليم الشهادات">
+                </div>
+		<div class="gallery-item animate">
+                    <img src="TOT/13.jpg" alt="تسليم الشهادات">
+                </div>
+		<div class="gallery-item animate">
+                    <img src="TOT/14.jpg" alt="تسليم الشهادات">
+                </div>
+		
+                <div class="gallery-item animate">
+                    <img src="TOT/16.jpg" alt="تسليم الشهادات">
+                </div>
+		<div class="gallery-item animate">
+                    <img src="TOT/17.jpg" alt="تسليم الشهادات">
+                </div>
+		<div class="gallery-item animate">
+                    <img src="TOT/18.jpg" alt="تسليم الشهادات">
+                </div>
+		<div class="gallery-item animate">
+                    <img src="TOT/19.jpg" alt="تسليم الشهادات">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم باقات الأسعار الجديدة -->
+    <section id="pricing">
+        <div class="container">
+            <h2 class="animate">باقات البرنامج والاستثمار في مستقبلك</h2>
+            <p class="animate">اختر الباقة التي تناسبك واستثمر في تحولك المهني والشخصي</p>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card animate">
+                    <h3>الباقة الأساسية</h3>
+                    <div class="price">5,000 <span>جنيه</span></div>
+                    <ul class="features-list">
+                        <li>المعسكر التدريبي المكثف (12 يوم)</li>
+                        <li>شهادة مشاركة معتمدة</li>
+                        <li>المواد التدريبية الأساسية</li>
+                        <li>حضور ورش العمل العامة</li>
+                        <li>اشتراك في القائمة البريدية</li>
+                    </ul>
+                    <a href="#enroll" class="cta-button">اختر هذه الباقة</a>
+                </div>
+                
+                <div class="pricing-card popular animate">
+                    <h3>الباقة المتقدمة</h3>
+                    <div class="price">7,000 <span>جنيه</span></div>
+                    <ul class="features-list">
+                        <li>كل ما في الباقة الأساسية</li>
+                        <li>شهادة معتمدة من الخارجية المصرية</li>
+                        <li>كارنيه مدرب معتمد</li>
+                        <li>دعم لمدة 3 أشهر بعد البرنامج</li>
+                        <li>حضور ورش العمل المتخصصة</li>
+                        <li>المواد التدريبية المتقدمة</li>
+                        <li>اشتراك مخفض في برامج الأكاديمية</li>
+                        <li>جلسات coaching جماعية (4 جلسات)</li>
+                        <li>نصائح تطبيقية لتطوير المسار المهني</li>
+                        <li>قائمة جهات محتملة للعمل</li>
+                        <li>نماذج عقود تدريب جاهزة</li>
+                        <li>خصم 20% على البرامج القادمة</li>
+                    </ul>
+                    <a href="#enroll" class="cta-button">اختر هذه الباقة</a>
+                </div>
+                
+                <div class="pricing-card animate">
+                    <h3>باقة التميز</h3>
+                    <div class="price">10,000 <span>جنيه</span></div>
+                    <ul class="features-list">
+                        <li>كل ما في الباقة المتقدمة</li>
+                        <li>دعم لمدة عام كامل بعد البرنامج</li>
+                        <li>جلسات coaching فردية (4 جلسات)</li>
+                        <li>تسويق شخصي لك كمتدرب في قنواتنا</li>
+                        <li>دعوة حصرية لفعاليات الأكاديمية</li>
+                        <li>مراجعة وتقييم شامل لأدائك التدريبي</li>
+                        <li>اشتراك مجاني في community المدربين</li>
+                        <li>مشاركة في مؤتمرات الأكاديمية كضيف شرف</li>
+                        <li>تصميم بروفايل احترافي لك على موقع الأكاديمية</li>
+                        <li>إمكانية الانضمام لكادر التدريب بالأكاديمية</li>
+                        <li>توصية مهنية مكتوبة من المدرب الرئيسي</li>
+                        <li>حقيبة أدوات تدريبية شاملة (قيمتها 3000 جنيه)</li>
+                        <li>خصم 40% على البرامج القادمة</li>
+                        <li>دعم فني في إعداد عروضك التدريبية</li>
+                        <li>نموذج موقع إلكتروني جاهز لاستخدامك</li>
+                        <li>تصميم هوية بصرية مبدئية لعلامتك التجارية</li>
+                        <li>قائمة عملاء محتملين في مجالك</li>
+                        <li>متابعة أسبوعية للإنجازات والتحديات</li>
+                        <li>تقارير تقييم أداء مفصلة كل 3 أشهر</li>
+                        <li>عضوية مجانية في نادي الخريجين المتميزين</li>
+                    </ul>
+                    <a href="#enroll" class="cta-button">اختر هذه الباقة</a>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 2rem;">تقسيط على 12 شهر بدون فوائد متاح للباقات المتقدمة و باقة التميز</p>
+        </div>
+    </section>
+
+    <!-- قسم آراء المتدربين (متحرك) -->
+    <section>
+        <div class="container">
+            <h2 class="animate">آراء متدربين سابقين</h2>
+            <p class="animate">انضم إلى أكثر من 1000 مدرب محترف تخرجوا من برنامجنا وحققوا نجاحات مذهلة</p>
+            
+            <div class="testimonials-container">
+                <div class="testimonials-slider">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"كنت مدربًا عاديًا، والآن لدي هوية مهنية واضحة وزادت إيراداتي بنسبة 200% في 6 أشهر فقط!"</p>
+                        <p class="testimonial-author">- أحمد سعيد، خريج الدفعة 24</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"الشهادة المعتمدة فتحت لي أبوابًا في سوق العمل لم أكن أحلم بها من قبل. الضمان جعلني أشعر بالأمان الكامل للاستثمار في نفسي"</p>
+                        <p class="testimonial-author">- منى محمد، خريجة الدفعة 25</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"الدعم المستمر لمدة عام كان الفارق الحقيقي. لم أعد أشعر أنني وحيد في رحلتي التدريبية، المرشد ساعدني في تجاوز كل التحديات"</p>
+                        <p class="testimonial-author">- خالد محمود، خريج الدفعة 23</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-nav">
+                <button id="prev-testimonial"><i class="fas fa-chevron-right"></i></button>
+                <button id="next-testimonial"><i class="fas fa-chevron-left"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container">
+            <div class="guarantee">
+                <i class="fas fa-shield-alt"></i>
+                <h2>ضمان الاسترداد الكامل للمخاطرة صفر</h2>
+                <p>اختبر البرنامج لمدة 30 يوم كاملة. إذا لم تجد تحولًا ملحوظًا في مستواك المهني والشخصي، سنسترد لك كامل المبلغ دون أي أسئلة. الخطر علىّ أنا مش عليك.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="scarcity">
+                <div class="scarcity-content">
+                    <h2>انتبه: هذه الفرصة لا تتكرر إلا كل 4 سنوات!</h2>
+                    <p>الدفعة 26 هي الأحدث ولن تتكرر قبل عام 2027. 10 مقاعد فقط متبقية من أصل 30.</p>
+                    <p>قائمة الانتظار للدفعة 27 مفتوحة already ومليانة بـ 50 شخص... هذه قد تكون آخر فرصة ليك في السنادي!</p>
+                    
+                    <div class="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="days">07</div>
+                            <div class="countdown-label">أيام</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">23</div>
+                            <div class="countdown-label">ساعات</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">45</div>
+                            <div class="countdown-label">دقائق</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="seconds">18</div>
+                            <div class="countdown-label">ثواني</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="enroll" class="bg-light">
+        <div class="container">
+            <h2 class="animate">احجز مقعدك الآن - التحول يبدأ بقرار</h2>
+            <p class="animate">املأ البيانات التالية وسنتصل بك خلال 24 ساعة للتأكيد:</p>
+            
+            <form style="max-width: 600px; margin: 0 auto;">
+                <div style="margin-bottom: 1rem;">
+                    <label for="name">الاسم بالكامل:</label>
+                    <input type="text" id="name" required style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label for="email">البريد الإلكتروني:</label>
+                    <input type="email" id="email" required style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label for="phone">رقم الهاتف:</label>
+                    <input type="tel" id="phone" required style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label for="package">الباقة المطلوبة:</label>
+                    <select id="package" required style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 5px;">
+                        <option value="">اختر الباقة</option>
+                        <option value="basic">الباقة الأساسية (5,000 ج)</option>
+                        <option value="premium">الباقة المتقدمة (7,000 ج)</option>
+                        <option value="vip">باقة التميز (10,000 ج)</option>
+                    </select>
+                </div>
+                <button type="submit" style="background-color: var(--secondary); color: white; padding: 1rem 2rem; border: none; border-radius: 50px; font-size: 1.2rem; cursor: pointer; width: 100%;">احجز مقعدي الآن</button>
+            </form>
+            
+            <p style="text-align: center; margin-top: 2rem;">ستتلقى رسالة تأكيد بالبريد الإلكتروني خلال دقائق مع كافة التفاصيل</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>أكاديمية تدريب المدربين</h3>
+                    <p>رواد في إعداد المدربين المحترفين منذ 2010</p>
+                </div>
+                <div>
+                    <h3>اتصل بنا</h3>
+                    <p>info@academy.com</p>
+                    <p>0123456789</p>
+                </div>
+                <div>
+                    <h3>تابعنا على</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p>© 2023 أكاديمية تدريب المدربين. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+        // أنيميشن عند التمرير
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // testimonial slider
+            const slider = document.querySelector('.testimonials-slider');
+            const prevButton = document.getElementById('prev-testimonial');
+            const nextButton = document.getElementById('next-testimonial');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                slider.style.transform = `translateX(-${index * 100}%)`;
+            }
+            
+            nextButton.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % document.querySelectorAll('.testimonial-card').length;
+                showSlide(currentSlide);
+            });
+            
+            prevButton.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + document.querySelectorAll('.testimonial-card').length) % document.querySelectorAll('.testimonial-card').length;
+                showSlide(currentSlide);
+            });
+            
+            // عد تنازلي
+            function updateCountdown() {
+                const countdownDate = new Date();
+                countdownDate.setDate(countdownDate.getDate() + 7);
+                
+                const days = document.getElementById('days');
+                const hours = document.getElementById('hours');
+                const minutes = document.getElementById('minutes');
+                const seconds = document.getElementById('seconds');
+                
+                const countdownFunction = setInterval(() => {
+                    const now = new Date().getTime();
+                    const distance = countdownDate - now;
+                    
+                    days.innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    hours.innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    minutes.innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    seconds.innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
+                    
+                    if (distance < 0) {
+                        clearInterval(countdownFunction);
+                        document.getElementById('countdown').innerHTML = "انتهى العرض";
+                    }
+                }, 1000);
+            }
+            
+            updateCountdown();
+        });
+    </script>
+</body>
+</html>
