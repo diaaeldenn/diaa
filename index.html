@@ -146,6 +146,44 @@
             position: relative;
         }
         
+		 .hero-text {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin: 1.5rem 0;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+		
+		.target-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .target-item {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        
+        .target-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        
+        .target-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+		
         .bg-light {
             background-color: var(--light);
         }
@@ -209,6 +247,40 @@
             background: white;
             right: 50%;
             transform: translateX(50%);
+        }
+		
+		.skills-column {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        
+        .skills-list {
+            list-style-type: none;
+            margin-top: 1.5rem;
+        }
+        
+        .skills-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed rgba(255,255,255,0.3);
+            position: relative;
+            padding-right: 2rem;
+        }
+        
+        .skills-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            right: 0;
+        }
+		
+		.highlight {
+            color: var(--secondary);
+            font-weight: bold;
         }
         
         .testimonials-container {
@@ -401,6 +473,41 @@
             z-index: 0;
         }
         
+		 .vision-section {
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .vision-text {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+		
+		 .problem-section {
+            background: linear-gradient(135deg, #ff9a8b 0%, #ff6a88 100%);
+            color: white;
+            padding: 4rem 0;
+            border-radius: 15px;
+            margin: 4rem 0;
+        }
+        
+        .problem-section h2::after {
+            background: white;
+            right: 50%;
+            transform: translateX(50%);
+        }
+		
+		  .bg-light {
+            background-color: var(--light);
+        }
+        
+        .bg-dark {
+            background-color: var(--dark);
+            color: white;
+        }
+		
         .scarcity-content {
             position: relative;
             z-index: 1;
@@ -669,17 +776,75 @@
             <h1 class="animate">برنامج إعداد المدربين المحترفين</h1>
 		<h1 class="animate">TOT - CPT</h1>
             <p class="animate">الدفعة 16 - يقام هذا البرنامج مرة كل 3 سنوات فقط!</p>
-            <p class="animate">انضم إلينا لتجد في النهاية أنك لم تحصل على كورس تدريبي، بل حصلت على نفسك من جديد."</p>
+					
+			<div class="hero-text animate">
+                ليس مجرد برنامج تدريبي، هو <span class="highlight">نقلة نوعية في حياتك</span> ستضعك على أعتاب مرحلة استثنائية على المستوى النفسي والشخصي والمهني والاجتماعي، ستجد انك حصلت على نفسك من جديد.
+            </div>
+			
             <a href="#enroll" class="cta-button animate">احجز مقعدك الآن - مقاعد محدودة!</a>
-	        <p class="animate">احجز مقعدك فى المحاضرة التعريفية + ورشة عمل مجانية عن مهارات وفن الاقناع</p>
+	        <p class="animate">احجز مقعدك فى المحاضرة التعريفية لتحصل على ورشة عمل مجانية عن <span class="highlight">مهارات وفن الاقناع</span></p>
 
         </div>
     </header>
 
+	 <section class="vision-section">
+        <div class="container">
+            <h2 class="animate">ليس فقط لتصبح مدرباً...</h2>
+            <div class="vision-text animate">
+                بل لتصبح <span class="highlight">إنساناً، قدوة، مرشداً، معلماً، وقائداً</span>. برنامج "عالم جديد" هو رحلة تحول شاملة تمنحك الأدوات والرؤية لتغيير حياتك وحياة الآخرين.
+            </div>
+        </div>
+    </section>
+
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="animate">هل تواجه هذه التحديات؟</h2>
+            <div class="hero-text animate">
+                في ناس بتواجه صعوبة تتكلم مع الناس بشكل عام، مش بتعرف تعرض أفكارها، أحيانا بتحس بخوف لو اتطلب منها تتكلم وتعرض أفكارها، أو أحيانا بنتكسف، وبنقلق من تقييم الناس لينا ورد فعلهم علينا.
+            </div>
+            <div class="hero-text animate">
+                بنحس في أوقات إننا اتغلبنا ومعرفناش نقنع اللى قدامنا بوجهة نظرنا وبتتغلب في الكلام مع إننا صح وكلامنا صح، أفكارنا مش بتكون مرتبه، الناس مش بتفهمنا، مش بنعرف نتكلم قدام ناس كتير، الناس بتزهق من كلامنا بسرعة.
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="animate">الحل الذي تبحث عنه</h2>
+            <div class="hero-text animate">
+                لو محتاج تعالج وتصلح وتتغلب على كل الكلام ده، تقدر تنضم لينا في برنامج أقل ما يقال عنه إنه هايغير شخصيتك، <span class="highlight">جداً، جداً</span>.
+            </div>
+            <div class="hero-text animate">
+                لو محتاج يكون ليك شخصية وحضور وكاريزما، وتكون شخص مقنع ومؤثر، والناس بتحب تسمعلك، <span class="highlight">دى فرصتك</span>.
+            </div>
+            
+            <div class="program-features">
+                <div class="feature-card animate">
+                    <i class="fas fa-brain"></i>
+                    <h3>تغيير الشخصية</h3>
+                    <p>تطوير شامل لشخصيتك لتصبح أكثر ثقة وتأثيراً</p>
+                </div>
+                <div class="feature-card animate">
+                    <i class="fas fa-users"></i>
+                    <h3>حضور قوي</h3>
+                    <p>امتلاك الكاريزما والحضور المؤثر في أي gathering</p>
+                </div>
+                <div class="feature-card animate">
+                    <i class="fas fa-comments"></i>
+                    <h3>التواصل الفعال</h3>
+                    <p>إتقان فنون التواصل والإقناع والتأثير في الآخرين</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+	
+	
+	
     <section>
         <div class="container">
             <h2 class="animate">لماذا هذا البرنامج مختلف تمامًا؟</h2>
-             <div class="justified-text">
+             <div class="justified-text"; align="justify">
             <p>هذا البرنامج ليس مجرد تدريب عادي، بل هو نقطة تحول حقيقية في حياتك المهنية والشخصية.</p>
 
             <p>إذا كنت قد شعرت يومًا أنك فقدت الثقة في نفسك، أو أن علاقاتك بحاجة لتحسين، أو أنك تبحث عن شغفك وهدفك الحقيقي في الحياة، فإن هذا البرنامج مصمم خصيصًا لك. نحن لا نعدك فقط بالمعلومات، بل نعدك بتحول جذري. سنساعدك على بناء ثقتك بنفسك لتصبح أقوى من أي وقت مضى، وتكسب احترامك لذاتك واحترام من حولك.</p>
@@ -745,6 +910,50 @@
         </div>
     </section>
 
+	
+    <section>
+        <div class="container">
+            <h2 class="animate">ما الذي ستتعلمه في هذا البرنامج؟</h2>
+            <div class="program-features">
+                <div class="feature-card animate">
+                    <h3><i class="fas fa-cogs"></i> المهارات الفنية</h3>
+                    <ul class="skills-list">
+                        <li>مفهوم التدريب والتعليم والتعلم والفرق بينهم</li>
+                        <li>أهمية مجال التدريب وماذا يقدم</li>
+                        <li>تحديد أهداف التدريب</li>
+                        <li>التخطيط لعملية التدريب</li>
+                        <li>صناعة وإنشاء الحقائب التدريبية</li>
+                        <li>تحديد الفئات المستهدفة من عملية التدريب</li>
+                        <li>استخدام الأساليب التدريبية المختلفة</li>
+                        <li>استخدام الألعاب التدريبية وتوظيفها</li>
+                        <li>استخدام الأدوات والوسائل التكنولوجية</li>
+                        <li>عملية تنظيم التدريب وتنفيذ إجراءاته</li>
+                        <li>عمليتي التقييم والتقويم للبرامج التدريبية</li>
+                        <li>مهارات تسويق البرامج التدريبية</li>
+                    </ul>
+                </div>
+			    
+                <div class="feature-card animate">
+                    <h3><i class="fas fa-user-graduate"></i> المهارات الشخصية</h3>
+                    <ul class="skills-list">
+                        <li>الحصول على شخصية مؤثرة وحضور قوي</li>
+                        <li>مهارات بناء الألفة وكسر الحواجز النفسية</li>
+                        <li>قوة الألفاظ وتوصيل الأفكار</li>
+                        <li>مهارات الإقناع والتأثير في الآخرين</li>
+                        <li>كيفية التحدث أمام الجمهور</li>
+                        <li>مهارات الأداء التعبيري وفن التأثر في الآخرين</li>
+                        <li>مهارات الإقناع وتشكيل القناعات</li>
+                        <li>مهارات التواصل على مستوى اللاوعي</li>
+                        <li>تقنيات زراعة الأفكار والإيحاء الضمني</li>
+                        <li>التعامل مع الأنماط المختلفة</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+	
     <section class="bonus-section">
         <div class="container">
             <h2 class="animate">هدايا وقيمة إضافية لا تُقاوم!</h2>
@@ -783,8 +992,12 @@
                 </div>
             </div>
             
-            <p style="margin-top: 2rem; font-size: 1.2rem;"><strong>إجمالي قيمة الخصومات والدعم اللى هتحصل علية : 36,000 جنيه</strong></p>
-	       <p style="margin-top: 2rem; font-size: 1.2rem;"><strong>انضمامك لينا مش معناه حضور تدريب - دا وجود ليك فى مجتمع بيقدملك دعم عشان تكون الافضل</strong></p>
+            <p style="margin-top: 2rem; font-size: 1.2rem;"><strong>إجمالي قيمة الخصومات والدعم اللى هتحصل علية : <span class="highlight">36,000</span> جنيه</strong></p>
+	       <p style="margin-top: 2rem; font-size: 1.2rem;"><strong>انضمامك لينا مش معناه حضور تدريب - دا وجود ليك فى  
+			   
+			   <span class="highlight">مجتمع بيقدملك دعم </span>
+			   عشان تكون الافضل
+			   </strong></p>
         </div>
     </section>
 
@@ -1020,10 +1233,235 @@
                 </div>
             </div>
             
-            <p style="text-align: center; margin-top: 2rem;">تقسيط على 12 شهر بدون فوائد متاح للباقات المتقدمة و باقة التميز</p>
+            <p style="text-align: center; margin-top: 2rem;">
+				السداد متاح بكل الطرق "كاش" - " تحويل بنكى" - "انستاباى" - "فورى " - " محافظ اليكترونة "
+				</p>
+			<p style="text-align: center; margin-top: 2rem;">السداد كاش دفعة واحدة - دون تجزئة</p>
         </div>
     </section>
 
+	
+	
+	
+	 <section class="bg-light">
+        <div class="container">
+            <h2 class="animate">المستويات المتقدمة: الطريق إلى الاحتراف</h2>
+			
+			 <h4 style="font-size: 1.2rem; color: var(--dark);text-align:center;">
+				
+				قبل الاختيار يمكنك الاطلاع على محتوى المستويات المتقدمة .
+			 </h4>
+			
+            <div class="program-features">
+                <div class="feature-card animate">
+					
+					
+					 <h3 style="font-size: 1.5rem; color: var(--primary); text-align: right;">المستوى الثاني: التميز في عالم التدريب الرقمي</h3>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 30px;">
+				هذا المستوى مصمم خصيصًا لنقلك إلى مستوى احترافي جديد، حيث تمتلك أدوات العصر وتتقن لغة المستقبل. سنتعلم كيف نستخدم التكنولوجيا لزيادة تأثيرك، وكيف تسوق لنفسك لتصل إلى جمهور أوسع.</p>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 40px;">
+                <div style="flex: 1; min-width: 450px;">
+                    <h4 style="font-size: 1.5rem; color: var(--dark);">الجزء الأول: مهارات المدرب الرقمي (التكنولوجية)</h4>
+                    <p style="font-size: 1rem; color: var(--secondary-color);">هذا القسم يركز على الأدوات والتقنيات التي تجعل عملك أكثر كفاءة واحترافية.</p>
+                    
+                    <h3><i class="fas fa-cogs"></i> المهارات الفنية</h3>
+                    <ul class="skills-list">
+						
+                        <li>أساسيات مونتاج الفيديو والصوت:
+							<ol>
+							* تعلم كيفية استخدام برامج سهلة للمونتاج لإنتاج محتوى فيديو احترافي لدوراتك التدريبية.
+							</ol>
+							<ol>
+							* تقنيات تحسين جودة الصوت ودمج الموسيقى والمؤثرات الصوتية.
+							</ol>
+						</li>
+                        <li>تصميم العروض التقديمية الاحترافية:
+							<ol>
+							* استخدام برامج مثل Canva و PowerPoint لتصميم عروض بصرية جذابة ومؤثرة.
+							</ol>
+							<ol>
+							* دمج العناصر التفاعلية والرسوم البيانية لإشراك الجمهور.
+							</ol>
+						</li>
+                        <li>بناء وتفعيل المنصات التدريبية:
+							<ol>
+							* التعامل مع أنظمة إدارة التعلم (LMS) مثل Google Classroom أو Moodle لرفع المحتوى وإدارة المتدربين.
+							</ol>
+							<ol>
+							* إنشاء استبيانات واختبارات تفاعلية باستخدام أدوات مثل Google Forms.
+							</ol>
+						</li>
+						<li>فن الإلقاء المرئي والمسموع:
+							<ol>
+							* اكيفية استخدام الوسائل السمعية والبصرية وأجهزة العرض المختلفة بفاعلية.
+							</ol>
+							<ol>
+							* أهم الأجهزة والمعدات الأساسية التي يحتاجها المدرب (مايك، إضاءة، كاميرا).
+							</ol>
+						</li>
+						<li>تفعيل ادوات الذكاء الاصطناعى:
+							<ol>
+							* استخدام الذكاء الاصطناعى فى صناعة المحتوى. 
+							</ol>
+							<ol>
+							* استخدام الذكاء الاصطناعى فى انشاء وادارة ادوات وموارد التدريب .
+							</ol>
+						</li>
+                    
+                    </ul>
+                </div>
+			    
+                
+            </div>
+					
+					
+        
+					
+					 <h4 style="font-size: 1.5rem; color: var(--dark);">الجزء الثاني: مهارات المدرب المؤثر (التسويقية والدعائية)</h4>
+                    <p style="font-size: 1rem; color: var(--secondary-color);">هذا القسم يركز على كيفية بناء علامتك التجارية والوصول إلى جمهورك.</p>
+					
+					
+                  
+ 					<h3><i class="fas fa-user-graduate"></i> المهارات الشخصية</h3>
+                    <ul class="skills-list">
+						
+                        <li>مهارات التسويق والإعلان الرقمي:
+							<ol>
+							* بناء خطة تسويقية متكاملة لبرامجك التدريبية.
+							</ol>
+							<ol>
+							* استخدام الإعلانات المدفوعة على منصات التواصل الاجتماعي (Facebook Ads, Instagram Ads).
+							</ol>
+						</li>
+                        <li>بناء علامتك التجارية الشخصية:
+							<ol>
+							* التعرف على هويتك كمدرب وكيفية بناء علامة تجارية قوية وموثوقة.
+							</ol>
+							<ol>
+							* مهارات التعامل مع السوشيال ميديا: كيفية إنشاء محتوى جذاب ومتسق مع علامتك التجارية.
+							</ol>
+						</li>
+                        <li>التفاعل مع الجمهور وبناء المجتمع:
+							<ol>
+							* كيفية استخدام أدوات السوشيال ميديا للتفاعل مع جمهورك والإجابة على استفساراتهم.
+							</ol>
+							<ol>
+							* بناء مجتمع من المتابعين المخلصين الذين يثقون في محتواك.
+							</ol>
+						</li>
+						
+                    
+                    </ul>						
+						
+                </div>
+    </section>
+	
+	
+	
+	 <section class="bg-light">
+        <div class="container">
+            
+			
+			 
+			
+            <div class="program-features">
+                <div class="feature-card animate">
+					
+					
+					 <h3 style="font-size: 1.5rem; color: var(--primary); text-align: right;">
+					المستوى الثالث: إعداد اخصائي الإرشاد الشخصي (Life Coaching)
+					</h3>
+            <p style="text-align:justify; font-size: 1.1rem; margin-bottom: 30px;">
+				
+					هذا المستوى هو قمة برامجنا، وهو مصمم خصيصًا لمن يريد أن يتجاوز مرحلة التدريب إلى التأثير العميق والمباشر في حياة الناس. الإرشاد الشخصي (الكوتشنج) ليس مجرد مهارة، بل هو رسالة إنسانية تمكنك من مساعدة نفسك والآخرين على حل مشاكلهم اليومية في مختلف جوانب الحياة.
+				<br>
+هذا البرنامج يضيف قيمة أساسية لمن يعمل في مجالات التدريب والقيادة والتعليم، ويعتبر خطوة هامة في مسيرتك المهنية لتصبح شخصًا مرشدًا ومساعدًا بشكل منهجي ومُتخصص.
+					</p>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 40px;">
+                <div style="flex: 1; min-width: 450px;">
+                    <h4 style="font-size: 1.5rem; color: var(--dark);">الجزء الأول: مهارات الإرشاد الذاتي</h4>
+                    <p style="font-size: 1rem; color: var(--secondary-color);">هذا القسم يركز على الأدوات التي ستحصل عليها لتساعد بها نفسك أولًا، لتصبح أنت قدوة التحول:</p>
+                    
+                    <h3> المهارات الشخصية</h3>
+                    <ul class="skills-list">
+						
+                        <li>التحرر من التردد
+							<ol>
+							تعلم كيفية اتخاذ القرارات المصيرية في حياتك بثقة وحسم.
+							</ol>
+							
+						</li>
+                        <li>فهم الذات
+							<ol>
+							اكتشف طرق تحليل شخصيتك وفهم طبيعتها، وكيفية تحديد قيمتك الذاتية ورسالتك في الحياة.
+							</ol>
+							
+						</li>
+                        <li>إدارة المشاعر والأفكار
+							<ol>
+							 تعلم كيفية التعامل مع الأفكار والمشاعر السلبية والتحكم في الضغوط اليومية.
+							</ol>
+							
+						</li>
+						<li>الوصول للاتزان
+							<ol>
+							 تعرف على منهجية الوصول لمرحلة الاتزان الطبيعي في كل جوانب حياتك.
+							</ol>
+							
+						</li>
+						
+                    
+                    </ul>
+                </div>
+			    
+                
+            </div>
+					
+					
+        
+					
+					 <h4 style="font-size: 1.5rem; color: var(--dark);">الجزء الثاني: مهارات إرشاد الآخرين  </h4>
+                    <p style="font-size: 1rem; color: var(--secondary-color);">هذا القسم يركز على كيفية تحويل خبرتك إلى منهج احترافي لمساعدة الآخرين:</p>
+					
+					
+                  
+ 					<h3> المهارات الارشادية</h3>
+                    <ul class="skills-list">
+						
+                        <li>بناء الخبرة
+							<ol>
+							اكتسب منهجية علمية وتطبيقات عملية لتصبح متخصصًا في الإرشاد والتوجيه.
+							</ol>
+							
+						</li>
+                        <li>بناء علامتك التجارية الشخصيةمساعدة الآخرين بشكل صحيح
+							<ol>
+							تعلم طرق تقديم المساعدة للآخرين والمقربين دون التسبب في أذيتهم.
+							</ol>
+							
+						</li>
+                        <li>حل الأزمات
+							<ol>
+							اتقن طرق تحليل أحداث الواقع وتشخيص أسباب الأزمات، والتعامل مع الأزمات الحياتية وأزمات العلاقات.
+							</ol>
+							
+						</li>
+						<li>التأثير والإرشاد
+							<ol>
+							كن شخصًا مؤهلاً لتقديم المساعدة والإرشاد للأفراد والمجموعات بشكل منهجي ومنظم.
+							</ol>
+							
+						</li>
+                    
+                    </ul>						
+						
+                </div>
+    </section>
+	
+	
+	
     <!-- قسم آراء المتدربين (متحرك) -->
     <section>
         <div class="container">
@@ -1035,6 +1473,10 @@
                     <div class="testimonial-card">
                         <p class="testimonial-text">"كنت مدربًا عاديًا، والآن لدي هوية مهنية واضحة وزادت إيراداتي بنسبة 200% في 6 أشهر فقط!"</p>
                         <p class="testimonial-author">- أحمد سعيد، خريج الدفعة 24</p>
+                    </div>
+					<div class="testimonial-card">
+                        <p class="testimonial-text">"كنت مدربًا عاديًا، والآن لدي هوية مهنية واضحة وزادت إيراداتي بنسبة 200% في 6 أشهر فقط!"</p>
+                        <p class="testimonial-author">- أحمد سعيد، خريج الدفعة 25</p>
                     </div>
                     <div class="testimonial-card">
                         <p class="testimonial-text">"الشهادة المعتمدة فتحت لي أبوابًا في سوق العمل لم أكن أحلم بها من قبل. الضمان جعلني أشعر بالأمان الكامل للاستثمار في نفسي"</p>
@@ -1053,13 +1495,21 @@
             </div>
         </div>
     </section>
-
+	
     <section class="bg-light">
         <div class="container">
             <div class="guarantee">
                 <i class="fas fa-shield-alt"></i>
                 <h2>ضمان الاسترداد الكامل للمخاطرة صفر</h2>
-                <p>اختبر البرنامج لمدة 30 يوم كاملة. إذا لم تجد تحولًا ملحوظًا في مستواك المهني والشخصي، سنسترد لك كامل المبلغ دون أي أسئلة. الخطر علىّ أنا مش عليك.</p>
+                <p>اختبر البرنامج لمدة 30 يوم كاملة. إذا لم تجد تحولًا ملحوظًا في مستواك المهني والشخصي، سنسترد لك كامل المبلغ دون أي أسئلة. الخطر علىّ أنا مش عليك.
+				
+					قرارك آمن 100%.
+لأننا واثقون من أن هذا التدريب سينقلك إلى مستوى آخر، نمنحك ضمانًا كاملاً:
+**بمجرد انتهاء المعسكر التدريبي، إذا لم تقتنع بأن ما نقدمه سيساعدك على تحقيق أهدافك، يمكنك استرداد قيمة اشتراكك بالكامل.**
+
+*ملحوظة: ستحتفظ بورشة عمل الإقناع والشهادة المجانية حتى لو قررت استرداد أموالك.
+				
+				</p>
             </div>
         </div>
     </section>
@@ -1095,13 +1545,24 @@
         </div>
     </section>
 
-    <section id="enroll" class="bg-light">
+    
+						
+			<section class="vision-section">
         <div class="container">
             <h2 class="animate">احجز مقعدك الآن - التحول يبدأ بقرار</h2>
-            <p class="animate">املأ البيانات التالية وسنتصل بك خلال 24 ساعة للتأكيد:</p>
+            <div class="vision-text animate">
+                خطوتك الأولى نحو الحياة التي تستحقها.
+سواء اتخذت قرار الانضمام إلينا أم لا، احجز مكانك الآن في المحاضرة  التعريفية المجانية، واحصل على <span class="highlight">ورشة عمل مهارات وفن الاقناع </span> مجاناً .		
+            
+            </div>
+        </div>
+    </section>
+			
             
             <form style="max-width: 600px; margin: 0 auto;">
                 <div style="margin-bottom: 1rem;">
+					<p class="animate">
+				املأ البيانات التالية وسنتصل بك خلال 24 ساعة للتأكيد:</p>
                     <label for="name">الاسم بالكامل:</label>
                     <input type="text" id="name" required style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 5px;">
                 </div>
@@ -1224,5 +1685,14 @@
             updateCountdown();
         });
     </script>
+
+
+
+
+
+
+
+
+
 </body>
 </html>
